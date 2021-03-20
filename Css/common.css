@@ -1,0 +1,38 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+  
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+label{
+    margin-left: 20px;
+}
+#datepicker{
+    width:180px; 
+    margin: 0 20px 20px 20px;
+}
+    #datepicker > span:hover{
+    cursor: pointer;
+}
+
+.table-work{
+    margin-top: 20px;
+}
+
+.no-padding{
+    padding: 0;
+}
+
+.float-left{
+    float: left;
+}
