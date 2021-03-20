@@ -1,7 +1,7 @@
 <?php
 $controllers = array(
-  'pages' => ['index', 'error'],
-  'works' => ['index']
+  'pages' => ['home', 'error'],
+  'works' => ['index', 'addWork', 'editWork', 'deleteWork']
 );
 
 if (!array_key_exists($controller, $controllers) || !in_array($action, $controllers[$controller])) {

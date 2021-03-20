@@ -5,13 +5,13 @@ table {
 }
   
 td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #3b3b3b;
     text-align: left;
     padding: 8px;
 }
   
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #b5f6ff;
 }
 
 label{

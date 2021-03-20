@@ -13,7 +13,58 @@ class WorksController extends BaseController
     {
         $works = Work::all();
         $data = array('works' => $works);
-        $this->render('table', $data);
+        $this->render('index', $data);
+        $content = ob_get_clean();
+        require_once('view/layouts/application.php');
+    }
+
+    public function addWork(){
+        $date_start = date_format(new DateTime($_POST['start_date']), 'Y-m-d');
+        $date_end = date_format(new DateTime($_POST['end_date']), 'Y-m-d');
+        $response = Work::addNew($_POST['name'], $date_start, $date_end, $_POST['status']);
+        if ($response){
+            $works = Work::all();
+            $data = array('works' => $works);
+            $html = $this->render('table', $data);
+            return print_r(json_encode(array(
+                'status'=> true,
+                'html' => $html
+            )));
+        }else{
+            return json_encode(array('status'=> false));
+        }   
+    }
+
+    public function editWork(){
+        $date_start = date_format(new DateTime($_POST['start_date']), 'Y-m-d');
+        $date_end = date_format(new DateTime($_POST['end_date']), 'Y-m-d');
+        $response = Work::editWork($_POST['id'] ,$_POST['name'], $date_start, $date_end, $_POST['status']);
+        if ($response){
+            $works = Work::all();
+            $data = array('works' => $works);
+            $html = $this->render('table', $data);
+            return print_r(json_encode(array(
+                'status'=> true,
+                'html' => $html
+            )));
+        }else{
+            return json_encode(array('status'=> false));
+        }
+    }
+
+    public function deleteWork(){
+        $response = Work::delete($_POST['id']);
+        if ($response){
+            $works = Work::all();
+            $data = array('works' => $works);
+            $html = $this->render('table', $data);
+            return print_r(json_encode(array(
+                'status'=> true,
+                'html' => $html
+            )));
+        }else{
+            return json_encode(array('status'=> false));
+        } 
     }
 
     public function error()

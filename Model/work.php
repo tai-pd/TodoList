@@ -21,13 +21,37 @@ class Work
         $list = [];
         $db = DB::getInstance();
         $req = $db->query('SELECT * FROM work');
-
-        if (mysqli_fetch_lengths($req) > 0){
-            foreach ($req->fetchAll() as $item) {
-                $list[] = new Post($item['id'], $item['name'], $item['start_date'], $item['end_date'], $item['status']);
+        if ($req->num_rows > 0){
+            foreach ($req->fetch_all() as $item) {
+                $list[] = new Work($item[0], $item[1], $item[2], $item[3], $item[4]);
             }
-    
-        }    
+        }
+         
+        DB::closeConnection();
         return $list;
+    }
+
+    static function addNew($name, $start_date, $end_date, $status){
+        $db = DB::getInstance();
+        $query_str = 'INSERT INTO work(work_name, starting_date, ending_date, status) VALUES (\''.$name.'\',\''.$start_date.'\',\''.$end_date.'\','.$status.');';
+        $req = $db->query($query_str);
+        DB::closeConnection();
+        return $req;
+    }
+
+    static function editWork($id, $name, $start_date, $end_date, $status){
+        $db = DB::getInstance();
+        $query_str = 'UPDATE worK SET work_name = \''.$name.'\', starting_date = \''.$start_date.'\', endind_date = \''.$end_date.'\', status='.$status.' WHERE id = \''.$id.'\' ;';
+        $req = $db->query($query_str);
+        DB::closeConnection();
+        return $req;
+    }
+
+    static function delete($id){
+        $db = DB::getInstance();
+        $query_str = 'DELETE FROM work WHERE ( id = \''.$id.'\');';
+        $req = $db->query($query_str);
+        DB::closeConnection();
+        return $req;
     }
 }

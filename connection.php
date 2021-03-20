@@ -14,4 +14,7 @@ class DB
         }
         return self::$instance;
     }
+    public static function closeConnection() {
+        self::$instance->close();
+    }
 }
