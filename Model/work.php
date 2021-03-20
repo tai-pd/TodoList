@@ -35,15 +35,14 @@ class Work
         $db = DB::getInstance();
         $query_str = 'INSERT INTO work(work_name, starting_date, ending_date, status) VALUES (\''.$name.'\',\''.$start_date.'\',\''.$end_date.'\','.$status.');';
         $req = $db->query($query_str);
-        DB::closeConnection();
         return $req;
     }
 
     static function editWork($id, $name, $start_date, $end_date, $status){
         $db = DB::getInstance();
-        $query_str = 'UPDATE worK SET work_name = \''.$name.'\', starting_date = \''.$start_date.'\', endind_date = \''.$end_date.'\', status='.$status.' WHERE id = \''.$id.'\' ;';
+        $query_str = 'UPDATE work SET work_name = \''.$name.'\', starting_date = \''.$start_date.'\', ending_date = \''.$end_date.'\', status='.$status.' WHERE id = \''.$id.'\' ;';
+        var_dump($query_str);
         $req = $db->query($query_str);
-        DB::closeConnection();
         return $req;
     }
 
@@ -51,7 +50,6 @@ class Work
         $db = DB::getInstance();
         $query_str = 'DELETE FROM work WHERE ( id = \''.$id.'\');';
         $req = $db->query($query_str);
-        DB::closeConnection();
         return $req;
     }
 }

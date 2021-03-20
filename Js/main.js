@@ -21,12 +21,12 @@ function initEvents(){
             modal.find('.modal-title').text('Add new work')
             _MODE="new"
         }
-        else{
+        else if (mode == "edit"){
             var work_id = button.data('work_id')
             modal.find('.modal-title').text('Modify work id : '+ work_id)
             _MODE="edit"
             _WORKID=work_id;
-        }  
+        } 
     });
 
     $(document).on('click', '#btn-save', function(){

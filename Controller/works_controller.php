@@ -42,10 +42,9 @@ class WorksController extends BaseController
         if ($response){
             $works = Work::all();
             $data = array('works' => $works);
-            $html = $this->render('table', $data);
+            var_dump($this->render('table', $data));
             return print_r(json_encode(array(
                 'status'=> true,
-                'html' => $html
             )));
         }else{
             return json_encode(array('status'=> false));
