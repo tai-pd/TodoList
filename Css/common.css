@@ -45,6 +45,14 @@ label{
     font-weight: normal;
 }
 
+.table-work, .content{
+    color: #fff;
+}
+
+.modal-content{
+    color: #000;
+}
+
 select[name="viewType"]{
     width: 86px;
 }

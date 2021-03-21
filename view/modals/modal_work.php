@@ -27,6 +27,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label for="message-text" class="col-form-label">End date</label>
                                 <div class='input-group date' id='datetimepicker_end'>
                                     <input type='text' class="form-control" />
                                     <span class="input-group-addon">
