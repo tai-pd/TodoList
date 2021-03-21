@@ -2,6 +2,9 @@
 require_once('../../connection.php');
 require_once('../../model/work.php');
 
+// $start_date = date_format(new DateTime($_GET['start']), 'Y-m-d H:i');
+// $end_date = date_format(new DateTime($_GET['end']), 'Y-m-d H:i');
+// $result = Work::workByView($start_date, $end_date);
 $result = Work::all();
 $events = [];
 

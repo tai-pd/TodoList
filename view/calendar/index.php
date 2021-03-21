@@ -43,14 +43,28 @@
     <div style="flex-grow: 1;">
 
       <div class="space">
-        Theme: <select id="theme">
-        <option value="calendar_default">Default</option>
-        <option value="calendar_white">White</option>
-        <option value="calendar_g">Google-Like</option>
-        <option value="calendar_green">Green</option>
-        <option value="calendar_traditional">Traditional</option>
-        <option value="calendar_transparent">Transparent</option>
-      </select>
+        <div class="row">
+          <div class="col-md-6">
+            Theme: <select id="theme">
+            <option value="calendar_default">Default</option>
+            <option value="calendar_white">White</option>
+            <option value="calendar_g">Google-Like</option>
+            <option value="calendar_green">Green</option>
+            <option value="calendar_traditional">Traditional</option>
+            <option value="calendar_transparent">Transparent</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="no-padding no-margin font-w-normal" for="time-option">View by : </label>
+            <select name="viewType" id="time-option">
+              <option value="Day" selected>Day</option>
+              <option value="Week">Week</option>
+              <option value="Month">Month</option>
+            </select>
+          </div>
+        </div>
+        
+
       </div>
 
       <div id="dp"></div>
@@ -73,10 +87,11 @@
   nav.init();
 
   var dp = new DayPilot.Calendar("dp");
-  dp.viewType = "Week";
+  var view_type = $('#time-option').val();
+  dp.viewType = view_type;
 
   dp.onEventClick = function (args) {
-    alert("clicked: " + args.e.id());
+    alert("Work : [" + args.e.id() + "] " + args.e.text());
   };
 
   dp.init();
@@ -86,6 +101,11 @@
   function loadEvents() {
     dp.events.load("view/calendar/backend_events.php");
   }
+
+  $('#time-option').on('change', function(){
+    dp.viewType = $(this).val();
+    dp.init();
+  });
 
 </script>
 

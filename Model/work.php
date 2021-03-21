@@ -51,4 +51,18 @@ class Work
         $req = $db->query($query_str);
         return $req;
     }
+
+    static function workByView($start_date, $end_date){
+        $list = [];
+        $db = DB::getInstance();
+        $req = $db->query('SELECT * FROM work WHERE NOT ending_date <= \''.$start_date.'\' and starting_date >= \''.$end_date.'\';');
+        if ($req->num_rows > 0){
+            foreach ($req->fetch_all() as $item) {
+                $list[] = new Work($item[0], $item[1], $item[2], $item[3], $item[4]);
+            }
+        }
+         
+        DB::closeConnection();
+        return $list;
+    }
 }
