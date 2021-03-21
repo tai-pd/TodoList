@@ -25,13 +25,14 @@ class WorksController extends BaseController
         if ($response){
             $works = Work::all();
             $data = array('works' => $works);
-            $html = $this->render('table', $data);
-            return print_r(json_encode(array(
-                'status'=> true,
-                'html' => $html
-            )));
+            $html = $this->render_php('table', $data);
+            return print_r(json_encode(
+                array('status'=> true,
+                    'table'=> $html
+                )
+            ));
         }else{
-            return json_encode(array('status'=> false));
+            return print_r(json_encode(array('status'=> false)));
         }   
     }
 
@@ -42,12 +43,14 @@ class WorksController extends BaseController
         if ($response){
             $works = Work::all();
             $data = array('works' => $works);
-            var_dump($this->render('table', $data));
-            return print_r(json_encode(array(
-                'status'=> true,
-            )));
+            $html = $this->render_php('table', $data);
+            return print_r(json_encode(
+                array('status'=> true,
+                    'table'=> $html
+                )
+            ));
         }else{
-            return json_encode(array('status'=> false));
+            return print_r(json_encode(array('status'=> false)));
         }
     }
 
@@ -56,13 +59,14 @@ class WorksController extends BaseController
         if ($response){
             $works = Work::all();
             $data = array('works' => $works);
-            $html = $this->render('table', $data);
-            return print_r(json_encode(array(
-                'status'=> true,
-                'html' => $html
-            )));
+            $html = $this->render_php('table', $data);
+            return print_r(json_encode(
+                array('status'=> true,
+                    'table'=> $html
+                )
+            ));
         }else{
-            return json_encode(array('status'=> false));
+            return print_r(json_encode(array('status'=> false)));
         } 
     }
 

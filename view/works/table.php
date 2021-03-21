@@ -20,7 +20,12 @@
                     <td><?echo date_format(new DateTime($work->end_date), 'Y/m/d') ?></td>
                     <td><?echo $work->status ?></td>
                     <td>
-                        <button data-mode="edit" data-work_id="<?echo $work->id?>" class="btn btn-info" data-toggle="modal" data-target="#workModal" id="btn-edit">Edit</button>
+                        <button data-mode="edit" data-work_id="<?echo $work->id?>" class="btn btn-info" data-toggle="modal" data-target="#workModal" id="btn-edit"
+                                data-name="<?echo $work->name ?>"
+                                data-start_date="<?echo date_format(new DateTime($work->start_date), 'Y-m-d') ?>"
+                                data-end_date="<?echo date_format(new DateTime($work->end_date), 'Y-m-d') ?>"
+                                data-status="<?echo $work->status ?>"
+                        >Edit</button>
                         <button data-work_id="<?echo $work->id?>" class="btn btn-danger" id="btn-delete">Delete</button>
                     </td>
                 </tr>

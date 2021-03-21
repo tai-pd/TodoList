@@ -23,7 +23,15 @@ function initEvents(){
         }
         else if (mode == "edit"){
             var work_id = button.data('work_id')
+            var name = button.data('name')
+            var start_date = button.data('start_date')
+            var end_date = button.data('end_date')
+            var status = button.data('status')
             modal.find('.modal-title').text('Modify work id : '+ work_id)
+            modal.find('#work-name').val(name)
+            modal.find('#datepicker-start input').val(start_date)
+            modal.find('#datepicker-end input').val(end_date)
+            modal.find('#status'+status).prop('checked',true);
             _MODE="edit"
             _WORKID=work_id;
         } 
@@ -63,11 +71,12 @@ function newWork(){
             status: status,
         },
         success: function(res){
-            if(res.success){
-                $('#workModal').hide();
+            if(res.status == true){
+                $('#workModal').modal('hide');
+                $('.table-work').empty().append(res.table);
             }else{
-                $('#workModal').hide();
-                $('#modalError').show();
+                $('#workModal').modal('hide');
+                $('#modalError').modal('show');
             }
         }
     });
@@ -91,11 +100,12 @@ function editWork(work_id){
             status: status,
         },
         success: function(res){
-            if(res.success){
-                $('#workModal').hide();
+            if(res.status == true){
+                $('#workModal').modal('hide');
+                $('.table-work').empty().append(res.table);
             }else{
-                $('#workModal').hide();
-                $('#modalError').show();
+                $('#workModal').modal('hide');
+                $('#modalError').modal('show');
             }
         }
     });
@@ -111,11 +121,10 @@ function deleteWork(work_id){
             id: work_id
         },
         success: function(res){
-            if(res.success){
-                $('#workModal').hide();
+            if(res.status == true){
+                $('.table-work').empty().append(res.table);
             }else{
-                $('#workModal').hide();
-                $('#modalError').show();
+                $('#modalError').modal('show');
             }
         }
     });

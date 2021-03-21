@@ -41,7 +41,6 @@ class Work
     static function editWork($id, $name, $start_date, $end_date, $status){
         $db = DB::getInstance();
         $query_str = 'UPDATE work SET work_name = \''.$name.'\', starting_date = \''.$start_date.'\', ending_date = \''.$end_date.'\', status='.$status.' WHERE id = \''.$id.'\' ;';
-        var_dump($query_str);
         $req = $db->query($query_str);
         return $req;
     }
