@@ -49,6 +49,11 @@ label{
     color: #fff;
 }
 
+.table-work{
+    max-height: 500px;
+    overflow-y: auto;
+}
+
 .modal-content{
     color: #000;
 }
