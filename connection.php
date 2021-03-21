@@ -8,7 +8,7 @@ class DB
                 self::$instance = new mysqli("db", "root", $_ENV["DATABASE_PASSWORD"], $_ENV["DATABASE_NAME"]);
                 // self::$instance = new PDO('mysql:host=localhost:8082;dbname=$_ENV["DATABASE_NAME"]', 'root', $_ENV["DATABASE_PASSWORD"]);
                 // self::$instance->exec("SET NAMES 'utf8'");
-            } catch (PDOException $ex) {
+            } catch (mysqli_sql_exception $ex) {
                 die($ex->getMessage());
             }
         }
