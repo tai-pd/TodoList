@@ -6,10 +6,7 @@ $(document).ready(function(){
 });
 
 function initDatePicker() {  
-    $("#datepicker-start, #datepicker-end").datepicker({         
-    autoclose: true,         
-    todayHighlight: true 
-    }).datepicker('update', new Date());
+    $('#datetimepicker_start, #datetimepicker_end').datetimepicker();
 }
 
 function initEvents(){
@@ -20,8 +17,8 @@ function initEvents(){
         if (mode == "new"){
             modal.find('.modal-title').text('Add new work')
             modal.find('#work-name').val('')
-            modal.find('#datepicker-start input').val('')
-            modal.find('#datepicker-end input').val('')
+            modal.find('#datetimepicker_start input').val('')
+            modal.find('#datetimepicker_end input').val('')
             modal.find('#status1').prop('checked',true);
             initDatePicker();
             _MODE="new"
@@ -34,8 +31,8 @@ function initEvents(){
             var status = button.data('status')
             modal.find('.modal-title').text('Modify work id : '+ work_id)
             modal.find('#work-name').val(name)
-            modal.find('#datepicker-start input').val(start_date)
-            modal.find('#datepicker-end input').val(end_date)
+            modal.find('#datetimepicker_start input').val(start_date)
+            modal.find('#datetimepicker_end input').val(end_date)
             modal.find('#status'+status).prop('checked',true);
             _MODE="edit"
             _WORKID=work_id;
@@ -62,8 +59,8 @@ function initEvents(){
 function newWork(){
     var url = `${window.location.protocol}//${window.location.host}/index.php?controller=works&action=addWork`
     var name = $('#work-name').val().trim();
-    var start_date = $('#datepicker-start input').val();
-    var end_date = $('#datepicker-end input').val();
+    var start_date = $('#datetimepicker_start input').val();
+    var end_date = $('#datetimepicker_end input').val();
     var status = $('input[name="workStatus"]:checked').val();
     $.ajax({
         url: url,
@@ -90,8 +87,8 @@ function newWork(){
 function editWork(work_id){
     var url = `${window.location.protocol}//${window.location.host}/index.php?controller=works&action=editWork`
     var name = $('#work-name').val().trim();
-    var start_date = $('#datepicker-start input').val();
-    var end_date = $('#datepicker-end input').val();
+    var start_date = $('#datetimepicker_start input').val();
+    var end_date = $('#datetimepicker_end input').val();
     var status = $('input[name="workStatus"]:checked').val();
     $.ajax({
         url: url,

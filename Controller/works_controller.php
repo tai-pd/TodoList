@@ -19,8 +19,8 @@ class WorksController extends BaseController
     }
 
     public function addWork(){
-        $date_start = date_format(new DateTime($_POST['start_date']), 'Y-m-d');
-        $date_end = date_format(new DateTime($_POST['end_date']), 'Y-m-d');
+        $date_start = date_format(new DateTime($_POST['start_date']), 'Y-m-d H:i');
+        $date_end = date_format(new DateTime($_POST['end_date']), 'Y-m-d H:i');
         $response = Work::addNew($_POST['name'], $date_start, $date_end, $_POST['status']);
         if ($response){
             $works = Work::all();
@@ -37,8 +37,8 @@ class WorksController extends BaseController
     }
 
     public function editWork(){
-        $date_start = date_format(new DateTime($_POST['start_date']), 'Y-m-d');
-        $date_end = date_format(new DateTime($_POST['end_date']), 'Y-m-d');
+        $date_start = date_format(new DateTime($_POST['start_date']), 'Y-m-d H:i');
+        $date_end = date_format(new DateTime($_POST['end_date']), 'Y-m-d H:i');
         $response = Work::editWork($_POST['id'] ,$_POST['name'], $date_start, $date_end, $_POST['status']);
         if ($response){
             $works = Work::all();

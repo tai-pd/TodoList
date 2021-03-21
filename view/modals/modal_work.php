@@ -17,19 +17,22 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label">Start date</label>
-                                <div id="datepicker-start" class="input-group date" data-date-format="dd-mm-yyyy"> 
-                                    <input class="form-control" readonly="" type="text" required> 
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
-                                </div>
+                                <div class='input-group date' id='datetimepicker_start'>
+                                    <input type='text' class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>    
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="message-text" class="col-form-label">End date</label>
-                                <div id="datepicker-end" class="input-group date" data-date-format="dd-mm-yyyy"> 
-                                    <input class="form-control" readonly="" type="text" required> 
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
-                                </div>
+                                <div class='input-group date' id='datetimepicker_end'>
+                                    <input type='text' class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>  
                             </div>
                         </div>
                     </div>
