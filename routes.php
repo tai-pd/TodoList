@@ -7,7 +7,7 @@ $controllers = array(
 
 if (!array_key_exists($controller, $controllers) || !in_array($action, $controllers[$controller])) {
   $controller = 'works';
-  $action = 'error';
+  $action = 'index';
 }
 include_once('controller/' . $controller . '_controller.php');
 $klass = str_replace('_', '', ucwords($controller, '_')) . 'Controller';

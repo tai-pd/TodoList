@@ -1,0 +1,5 @@
+CREATE DATABASE IF NOT EXISTS TodoList;
+
+USE TodoList;
+
+CREATE TABLE IF NOT EXISTS work (id int(11) NOT NULL AUTO_INCREMENT,work_name varchar(50) CHARACTER SET utf8 NOT NULL,starting_date datetime DEFAULT NULL,ending_date datetime DEFAULT NULL,status int(11) NOT NULL DEFAULT '1',PRIMARY KEY (id),UNIQUE KEY work_name_UNIQUE (work_name)) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
