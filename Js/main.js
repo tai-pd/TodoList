@@ -19,6 +19,11 @@ function initEvents(){
         var modal = $(this)
         if (mode == "new"){
             modal.find('.modal-title').text('Add new work')
+            modal.find('#work-name').val('')
+            modal.find('#datepicker-start input').val('')
+            modal.find('#datepicker-end input').val('')
+            modal.find('#status1').prop('checked',true);
+            initDatePicker();
             _MODE="new"
         }
         else if (mode == "edit"){
@@ -56,7 +61,7 @@ function initEvents(){
 
 function newWork(){
     var url = `${window.location.protocol}//${window.location.host}/index.php?controller=works&action=addWork`
-    var name = $('#work-name').val();
+    var name = $('#work-name').val().trim();
     var start_date = $('#datepicker-start input').val();
     var end_date = $('#datepicker-end input').val();
     var status = $('input[name="workStatus"]:checked').val();
@@ -84,7 +89,7 @@ function newWork(){
 
 function editWork(work_id){
     var url = `${window.location.protocol}//${window.location.host}/index.php?controller=works&action=editWork`
-    var name = $('#work-name').val();
+    var name = $('#work-name').val().trim();
     var start_date = $('#datepicker-start input').val();
     var end_date = $('#datepicker-end input').val();
     var status = $('input[name="workStatus"]:checked').val();

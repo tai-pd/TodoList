@@ -11,6 +11,13 @@
         </tr>
     </thead>
     <tbody>
+        <?php
+            $status_array=[
+                1 => 'Planing',
+                2 => 'Doing',
+                3 => 'Complete',
+            ];
+        ?>
         <?php if(isset($data) && count($data['works']) > 0) : ?>
             <? foreach($data['works'] as $k=>$work) : ?>
                 <tr>
@@ -18,7 +25,7 @@
                     <td><?echo $work->name ?></td>
                     <td><?echo date_format(new DateTime($work->start_date), 'Y/m/d') ?></td>
                     <td><?echo date_format(new DateTime($work->end_date), 'Y/m/d') ?></td>
-                    <td><?echo $work->status ?></td>
+                    <td><?echo $status_array[$work->status] ?></td>
                     <td>
                         <button data-mode="edit" data-work_id="<?echo $work->id?>" class="btn btn-info" data-toggle="modal" data-target="#workModal" id="btn-edit"
                                 data-name="<?echo $work->name ?>"
